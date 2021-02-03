@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "types": [
+            "node",
+            "jest"
+        ],
+        "sourceMap": true,
+        "esModuleInterop": true,
+        "noImplicitAny": true,
+        "strict": true,
+        "pretty": true,
+        "allowSyntheticDefaultImports": false,
+        "suppressImplicitAnyIndexErrors": false,
+        "allowJs": false,
+        "module": "commonjs",
+        "target": "es5",
+        "jsx": "react",
+    },
+    "compileOnSave": true,
+    "include": ["./src/**/*"],
+    "exclude": [
+        "node_modules",
+    ]
+  }
