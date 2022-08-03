@@ -1,12 +1,16 @@
 const path = require('path')
-const TerserPlugin = require('terser-webpack-plugin')
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
     context: __dirname,
     entry: {
         app: './src/index',
-        html: './public/index.html'
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, "public", "index.html"),
+        }),
+    ],
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].bundle.js',
@@ -16,9 +20,10 @@ module.exports = {
         extensions: ['.ts', '.tsx', '.js']
     },
     devServer: {
-        host: '0.0.0.0',
-        port: 8888
+        host: "0.0.0.0",
+        static: { directory: path.resolve(__dirname, "public") },
     },
+    optimization: { minimize: true },
     module: {
         rules: [
             {
@@ -27,7 +32,7 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg|svg|gif)?$/,
-                use: 'url-loader'
+                use: 'asset/resource'
             },
             {
                 test: /\.(tsx|ts)$/,
@@ -36,17 +41,7 @@ module.exports = {
             {
                 test: /\.(js)$/,
                 use: 'babel-loader'
-            },
-            {
-                test: /\.html$/,
-                loader: 'file-loader',
-                options: {
-                    name: '[name].[ext]'
-                }
             }
         ]
-    },
-    optimization: {
-        minimizer: [new TerserPlugin({})]
     }
 }

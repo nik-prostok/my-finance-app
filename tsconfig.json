@@ -13,7 +13,7 @@
         "suppressImplicitAnyIndexErrors": false,
         "allowJs": false,
         "module": "commonjs",
-        "target": "es5",
+        "target": "ES6",
         "jsx": "react",
     },
     "compileOnSave": true,

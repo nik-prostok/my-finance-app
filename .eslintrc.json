@@ -4,6 +4,7 @@
         "es2021": true
     },
     "extends": [
+        "eslint:recommended",
         "plugin:react/recommended",
         "standard"
     ],
@@ -22,5 +23,11 @@
     "rules": {
         "no-undef": "off",
         "indent": ["error", 4]
+    },
+    "settings": {
+        "react": {
+          "pragma": "React",
+          "version": "detect"
+        }
     }
 }

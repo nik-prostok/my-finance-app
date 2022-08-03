@@ -3,9 +3,9 @@ import * as React from 'react'
 
 import {
     HashRouter,
-    Switch,
     Route,
-    Link
+    Link,
+    Routes
 } from 'react-router-dom'
 import { Home } from '../views/Home'
 import { About } from '../views/About'
@@ -14,27 +14,21 @@ export class App extends React.Component<{}, {}> {
     public render (): JSX.Element | null {
         return <div>
             <HashRouter>
-                <div>
-                    <nav>
-                        <ul>
-                            <li>
-                                <Link to="/">Home</Link>
-                            </li>
-                            <li>
-                                <Link to="/test">About</Link>
-                            </li>
-                        </ul>
-                    </nav>
+                <nav>
+                    <ul>
+                        <li>
+                            <Link to="/">Home</Link>
+                        </li>
+                        <li>
+                            <Link to="/test">About</Link>
+                        </li>
+                    </ul>
+                </nav>
 
-                    <Switch>
-                        <Route path="/about">
-                            <About/>
-                        </Route>
-                        <Route path="/">
-                            <Home/>
-                        </Route>
-                    </Switch>
-                </div>
+                <Routes>
+                    <Route path="/about" element={<About/>} />
+                    <Route path="/" element={<Home/>} />
+                </Routes>
             </HashRouter>
         </div>
     }
