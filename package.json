@@ -11,7 +11,7 @@
     "build": "webpack --mode=production",
     "lint": "eslint \"src/**/*\"",
     "lint:fix": "yarn lint --fix",
-    "deploy:github": "NODE_ENV=github webpack --mode=production -o docs && git add . && git commit -m 'DEPLOY TO GITHUB PAGES' && git push origin main"
+    "deploy:github": "yarn lint && NODE_ENV=github webpack --mode=production -o docs && git add . && git commit -m 'DEPLOY TO GITHUB PAGES' && git push origin main"
   },
   "dependencies": {
     "react": "^18.2.0",
